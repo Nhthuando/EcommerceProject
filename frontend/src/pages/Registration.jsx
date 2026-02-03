@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../comp_css/Login.css";
 import { useNavigate,Link } from "react-router-dom";
 import axios from 'axios';
+import { API_BASE_URL } from "../Router/api";
 import loginbg from "../picture/loginbg.webp";
 //import loginbg from "../picture/registerbg.jpg";
 
@@ -35,7 +36,7 @@ const Registration = () => {
     e.preventDefault();
   
     try {
-      const response = await axios.post("http://localhost:8080/ecom/customers", form);
+      const response = await axios.post(`${API_BASE_URL}/ecom/customers`, form);
       
       if (response.status === 200) {
         alert("Your registration was successful");

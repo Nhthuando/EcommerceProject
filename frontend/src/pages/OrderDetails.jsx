@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../Router/api";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Profile from "../components/Profile";
-import api from "../Router/api";
 
 import "../comp_css/order.css";
 
@@ -22,8 +21,8 @@ const OrderDetails = () => {
   };
  
   const handeldeleteOrder = (orderId) => {
-    axios
-      .delete(`http://127.0.0.1:8080/ecom/orders/users/${userId}/${orderId}`)
+    api
+      .delete(`/ecom/orders/users/${userId}/${orderId}`)
       .then((response) => {
         alert(response.data);
 

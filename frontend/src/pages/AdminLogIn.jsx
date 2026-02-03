@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../comp_css/Login.css";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../Router/api";
 
 const formData = {
   username: "",
@@ -26,7 +27,7 @@ const AdminLogin = () => {
 
     try {
       const authHeader = `Basic ${btoa(`${form.username}:${form.password}`)}`;
-      const response = await axios.get("http://localhost:8080/ecom/signIn", {
+      const response = await axios.get(`${API_BASE_URL}/ecom/signIn`, {
         headers: {
           Authorization: authHeader,
         },

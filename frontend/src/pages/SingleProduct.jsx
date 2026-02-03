@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import api from '../Router/api'
+import api, { API_BASE_URL } from '../Router/api'
 import "../comp_css/SingleProduct.css";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8080/ecom/products/${productId}`)
+      .get(`${API_BASE_URL}/ecom/products/${productId}`)
       .then((response) => {
         setProduct(response.data);
       })
