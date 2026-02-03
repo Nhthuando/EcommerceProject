@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ecommerce-backend
+    env: java
+    rootDir: eCommersApp
+    buildCommand: "chmod +x mvnw && ./mvnw -DskipTests package"
+    startCommand: "java -jar target/*.jar"
